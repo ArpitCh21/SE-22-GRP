@@ -1,5 +1,3 @@
-# Software Engineering Project 
-
 ![](https://img.shields.io/badge/build-passing-Python_informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a)
 ![](https://img.shields.io/badge/OS-Linux-Python_informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a)
 ![](https://img.shields.io/badge/Code-Python-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a)
@@ -7,45 +5,50 @@
 ![](https://img.shields.io/badge/Shell-Bash-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a)
 ![](https://img.shields.io/badge/License-MIT-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a)
 
-This is the Placeholder Readme file for our Software Engineering group project.
+# Readme
 
-## Prerequisites 
+This is the Placeholder Data Readme file for our Software Engineering group project.
 
-Before you continue, ensure you have met the following requirements:
+## Name
 
-```
-* You have installed the latest version of Python.
-* You are using a Linux, Windows or Mac OS machine.
-* You have a basic understanding of Machine Learning concepts.
-```
+Place-holder for name of project (topic yet to be decided).
 
-## Instructions for Installation
+## Description of project
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+Place-holder for description of Project once the topic is decided.
+
+## Installation and setup
+
+Use the package manager [pip](https://pip.pypa.io/en/stable/) or [conda](https://docs.conda.io/en/latest/)
+to install necessary packages.
 
 ```bash
-pip install foobar
+pip install *packageName*
+conda install *packageName*
 ```
 
-## Example
+Project setup instructions to be added later.
 
-```python
-import foobar
+## Usage
 
-# returns 'words'
-foobar.pluralize('word')
+Usage instructions to be added later.
 
-# returns 'geese'
-foobar.pluralize('goose')
+## Roadmap
 
-# returns 'phenomenon'
-foobar.singularize('phenomena')
-```
-Further information can be found in our docs:
+To be added later.
 
-[Usage and Configuration]()
+## Contributing Policy
 
-## Contributors
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+This is an academic project for a graduate level course. Even though this repo is visible to public, contributors are limited to the participants of the project.
 
-Please make sure to update tests as appropriate.
+## Authors
+
+Kaustubh Deshpande: [Github](https://github.com/KaustubhKael)
+
+Aadil Tajani: [Github](https://github.com/aadiltajani)
+
+Aastha Singh: [Github](https://github.com/asingh0404)
+
+Arpit Choudhary: [Github](https://github.com/ArpitCh21)
+
+Dhruvish Patel: [Github](https://github.com/Dhruvish-Patel)
