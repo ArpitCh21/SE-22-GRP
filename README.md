@@ -9,6 +9,16 @@
 
 This is the Placeholder Readme file for our Software Engineering group project.
 
+## Prerequisites 
+
+Before you continue, ensure you have met the following requirements:
+
+```
+* You have installed the latest version of Python.
+* You are using a Linux, Windows or Mac OS machine.
+* You have a basic understanding of Machine Learning concepts.
+```
+
 ## Instructions for Installation
 
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
@@ -35,11 +45,7 @@ Further information can be found in our docs:
 
 [Usage and Configuration]()
 
-## Contributing
+## Contributors
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
-
-
-## License
-[MIT](https://choosealicense.com/licenses/mit/)
