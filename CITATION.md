@@ -1,4 +1,6 @@
-# Citation to be added after ZENODO DOI for easy referencing and citation of projects and author in literature and projects
+# Citation to be added if you use our work in literature and projects
+[![DOI](https://zenodo.org/badge/528490949.svg)](https://zenodo.org/badge/latestdoi/528490949)
+
 For now, Authors of Group 19:
 - Aadil Tajani
 - Aastha Singh
