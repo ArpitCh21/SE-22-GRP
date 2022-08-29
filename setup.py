@@ -1,14 +1,12 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='MyPackageName',
+    name='CSC510-HW-GRP19',
     version='1.0.0',
-    url='https://github.com/mypackage.git',
-    author='Author Name',
+    url='https://github.com/aadiltajani/CSC510-HW-GRP19',
+    author='Aadil Tajani, Aastha Singh, Arpit Choudhary, Dhruvish Patel, Kaustubh Deshpande',
     author_email='author@gmail.com',
-    description='Description of my package',
-    packages=find_packages(),
-    # install_requires=['numpy >= 1.11.1', 'matplotlib >= 1.5.1']
+    description='This is a Homework project for CSC510 Group 19 Fall22'
 )
 
 # Credits - https://github.com/maet3608/minimal-setup-py
