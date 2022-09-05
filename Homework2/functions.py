@@ -33,7 +33,7 @@ def cli(t:dict):
             t[slot]
          
 
-def o(t):
+def o(t:dict)->str:
     if type(t)!=dict:
         return str(t)
     def show(k, v):
@@ -54,7 +54,7 @@ def o(t):
     concatenated_string=string_arr.join()
     return(concatenated_string)
 
-def oo(t):
+def oo(t:dict)->dict:
     print(o(t))
     return t
     
