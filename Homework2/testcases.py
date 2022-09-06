@@ -65,7 +65,7 @@ def sym():
   sym = Sym()
   lst = ["a","a","a","a","b","b","c"]
   for x in lst:
-    add(x)
+    sym.add(x)
   mode = mid()
   entropy = div()
   entropy = (1000*entropy)//1/1000
@@ -76,7 +76,7 @@ def bignum():
   num = Num()
   the['nums'] = 32
   for i in range(1,1000):
-    add(i)
+    num.add(i)
   oo(nums())
   if len(num>0):
     return len(num)
@@ -86,9 +86,9 @@ def bignum():
 def num():
   num = Num()
   for i in range(1,100):
-    add(i)
-  mid = mid()
-  div = div()
+    num.add(i)
+  mid = num.mid()
+  div = num.div()
   print(mid, div)
   return 50<= mid and mid<= 52 and 30.5 <div and div<32
 
