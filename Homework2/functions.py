@@ -91,16 +91,20 @@ def cli(t:dict)->dict:
     if type(t)!=dict:
         print("error: something wrong with t:not a dictionary")
         quit()
+    help_flag=0
     for slot in t.keys():
         v=str(t[slot])
         for n,x in arg:
             if ((x=="-"+slot[1:2]) or (x=="--"+slot)):
                 v = v=="false" and "true" or v=="true" and "false" or arg[n+1]
+                if (x=="-h" or x=="--help"):
+                    help_flag=1
             t[slot] = coerce(v)
-    if (x=="-h" or x=="--help"):
+    if help_flag==1:
         print("\n")
         print(help)
         print("\n")
+        quit()
         
     return t
         
