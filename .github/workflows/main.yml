@@ -38,7 +38,7 @@ jobs:
           echo is python installed?
           python --version
           echo
-          echo Running code/__init__.py
-          echo It will provide sum of (20,30)
+          echo
+          echo Running a simple python code. It will provide sum of (20,30)
           python code/__init__.py
           
