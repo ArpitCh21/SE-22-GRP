@@ -38,5 +38,5 @@ jobs:
           echo is python installed?
           python --version
           echo
-          
+          python code/__init__.py
           
