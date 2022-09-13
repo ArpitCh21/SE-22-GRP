@@ -7,7 +7,7 @@
 ![](https://img.shields.io/badge/License-MIT-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a)
 # Readme
 
-This is the Placeholder Data Readme file for our Software Engineering group project.
+This folder contains HW 1,2 and 3. Hw 1 is the good repo and HW 2 and 3 are present in the HW2 folder.
 
 ## Name
 
