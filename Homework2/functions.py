@@ -116,6 +116,10 @@ def copy(t:dict):
         u[k] = copy(t[k])
     return u
 
+def push(t,x):
+    t[1+len(t.keys())]=x
+    return x
+
 def o(t:dict)->str:
     if type(t)!=dict:
         return str(t)
