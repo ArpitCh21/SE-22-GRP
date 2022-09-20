@@ -7,15 +7,15 @@
 ![](https://img.shields.io/badge/License-MIT-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a)
 # Readme
 
-This folder contains HW 1,2 and 3. Hw 1 is the good repo and HW 2 and 3 are present in the HW2 folder.
+This folder contains HW 1,2 and 3. Hw 1 and 4 is the good repo with all the bling and HW 2,3 are present in the LUA folder.
 
 ## Name
 
-Place-holder for name of project (topic yet to be decided).
+CSC 510 Software Engineering Group 19 Homework Repo.
 
 ## Description of project
 
-Place-holder for description of Project once the topic is decided.
+This repo is created to start off with good practices for SE Development and use Github and its tools for that. We have maintained a Good Repo here with the HW of LUA code written in Python with auto testing.
 
 ## Installation and setup
 
