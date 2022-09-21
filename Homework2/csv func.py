@@ -18,5 +18,4 @@ class CsvFile:
                 t = {}
                 for s1 in s.gmatch(sep):
                     t[1+t] = coerce(s1)
-
-                fun(t)
+        fun(t)
