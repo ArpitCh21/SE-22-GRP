@@ -135,7 +135,8 @@ def stats():
     print("xmid", o( data.stats(2,data.cols.x, mid)))
     print("xdiv", o( data.stats(3,data.cols.x, div)))
     print("ymid", o( data.stats(2,data.cols.y, mid)))
-    print("ydiv", o( data.stats(3,data.cols.y, div)))    
+    print("ydiv", o( data.stats(3,data.cols.y, div)))
+    return True
 
 
 help_string = input()
