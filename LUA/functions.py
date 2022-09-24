@@ -152,6 +152,9 @@ def oo(t: dict) -> dict:
     print(o(t))
     return t
 
+def rnd(x, places):
+    mult = 10 ** (places or 2)
+    return (math.floor(x * mult + 0.5) / mult
 
 class Obj:
     def __init__(self, t, i):
