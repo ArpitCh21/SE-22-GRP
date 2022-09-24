@@ -1,6 +1,7 @@
 import sys
 import math
 import random
+from functions import *
 
 
 class Sym:
@@ -98,6 +99,89 @@ class Num:
     # Num Mid
     def mid(self):
         return self.per(self.nums(), 0.5)
+
+
+class Cols:
+
+    def init(self,names):
+        self.names=names
+        self.all=[]
+        self.klass=None
+        self.x=[]
+        self.y=[]
+
+        for column_name in self.names:
+            if column_name[0].isupper():
+                column=Num(names.index(column_name),column_name)
+            else:
+                column=Sym(names.index(column_name),column_name)
+
+            if column_name[-1]!=':':
+                if('!' in column_name or '+' in column_name or '-' in column_name):
+                    self.y.append(column)
+                else:
+                    self.x.append(column)
+
+            if column_name[-1]=='!':
+                self.klass=column
+            self.all.append(column)
+
+    def str(self):
+        return f"names is {self.names}, all is {self.all}, klass is {self.klass}, x is {self.x}, y is {self.y}"
+
+
+class Rows:
+
+    def __init__(self, t:dict):
+        self.cells = t
+        self.cooked = copy(t)
+        self.isEvaled = False
+
+
+class Data: 
+
+    def init(self,src):
+        self.cols=None
+        self.rows=[]
+        self.src=src
+        if type(self.src) == str:
+            self.src=csv(src)
+            for row in self.src:
+                self.add(row)
+        else:
+            for row in self.src:
+                self.add(row)
+
+    def add(self,xs):
+
+        if not self.cols:
+            self.cols=Cols(xs)
+        else:
+            if type(xs)!= Rows:
+                row=Rows(xs)
+            else:
+                row=xs
+            self.rows.append(row)
+            for i in [self.cols.x,self.cols.y]:
+                for j in i:
+                    j.add(row.cells[j.at])
+
+
+    def stats(self,column,fun='mid'):
+        if(column=='x'):
+            showCols=self.cols.x
+        if(column=='y'):
+            showCols=self.cols.y
+        t={}
+        for i in showCols:
+            if(type(i)==Num):
+                if(fun=='mid'):
+                    v=i.mid()
+                elif(fun=='div'):
+                    v=i.div()
+            t[i.name]=v
+        return t
+
 
     @property
     def has(self):
