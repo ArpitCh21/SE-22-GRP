@@ -113,9 +113,29 @@ def copy(t:dict):
     return u
 
 
+def per(t,p):
+    if p == None:
+        p = 0.5
+    p = math.floor((p*len(t.keys()))+0.5)
+
+    return t[math.max(1,math.min(len(t.keys()),p))]
+
+
 def push(t,x):
     t[1+len(t.keys())]=x
     return x
+
+
+def csv(fileName):
+    if(fileName==None or len(fileName.strip())==0):
+        raise Exception("FILE NOT FOUND")
+    rows=[]
+    with open(fileName,'r',encoding='utf-8') as file:
+        row_eles=file.readlines()
+        for row_ele in row_eles:
+            k=list(map(coerce,row_ele.split(',')))
+            rows.append(k)
+    return rows
 
 
 def o(t: dict) -> str:
@@ -151,6 +171,11 @@ def o(t: dict) -> str:
 def oo(t: dict) -> dict:
     print(o(t))
     return t
+
+
+def rnd(x, places):
+    mult = 10 ** (places or 2)
+    return (math.floor(x * mult + 0.5) / mult)
 
 
 class Obj:
