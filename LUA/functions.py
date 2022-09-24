@@ -104,6 +104,20 @@ def cli(t: dict) -> dict:
     return t
 
 
+def copy(t:dict):
+    if type(t)!=dict:
+        return t
+    u = {}
+    for k in t.keys():
+        u[k] = copy(t[k])
+    return u
+
+
+def push(t,x):
+    t[1+len(t.keys())]=x
+    return x
+
+
 def o(t: dict) -> str:
     print(t)
     if type(t) != dict:
