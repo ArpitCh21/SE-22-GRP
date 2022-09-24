@@ -116,6 +116,9 @@ def o(t: dict) -> str:
         return (len(t.keys()) != 0) and ":{K} {V}".format(K=k, V=v)
 
     u = {}
+    if len(t.keys())==0:
+        return("nothing to print")
+
     for k in t.keys():
         v = t[k]
         u[1 + len(u.keys())] = show(k, v)
