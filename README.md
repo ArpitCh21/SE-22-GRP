@@ -5,6 +5,7 @@
 ![](https://img.shields.io/badge/IDE-IntelliJ_IDEA-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a)
 ![](https://img.shields.io/badge/Shell-Bash-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a)
 ![](https://img.shields.io/badge/License-MIT-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a)
+[![workflow](https://github.com/aadiltajani/CSC510-HW-GRP19/actions/workflows/main.yml/badge.svg)](https://github.com/aadiltajani/CSC510-HW-GRP19/actions)
 # Readme
 
 This folder contains HW 1,2 and 3. Hw 1 and 4 is the good repo with all the bling and HW 2,3 are present in the LUA folder.
