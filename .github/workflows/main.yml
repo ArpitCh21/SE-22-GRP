@@ -32,12 +32,10 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          echo What is in this directory?
-          ls -a
           echo
           echo is python installed?
           python --version
           echo
-          echo Running a simple python code to provide sum of 20 and 30
+          echo Output of the test file
           python test/test.py
           
