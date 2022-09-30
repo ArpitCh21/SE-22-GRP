@@ -39,5 +39,5 @@ jobs:
           python --version
           echo
           echo Running a simple python code to provide sum of 20 and 30
-          python code/__init__.py
+          python test/test.py
           
