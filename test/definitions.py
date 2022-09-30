@@ -5,141 +5,87 @@ from functions import *
 
 
 class Sym:
-
-    def __init__(self, *args):
+    def __init__(self,c=0,s='') -> None:
         self.n = 0
-        self.at = 0
-        self.name = ''
-        if len(args) > 0:
-            self.at = args[0]
-            self.name = args[1]
-        self._has = {}
+        self.name=s
+        self.at=c
+        self._has = dict()
 
+    
     def add(self, v):
-        v = str(v)
         if v != '?':
-            self.n += 1
-            if v in self._has.keys():
-                self._has[v] += 1
-            else:
-                self._has[v] = 1
+            self.n = self.n + 1
+            self._has[v] = 1 + self._has.get(v, 0)
+
 
     def mid(self):
-        max = -1
-        mode = -1
-        for sym, count in self._has.items():
-            if count > max:
-                max = count
-                mode = sym
-        return mode
+        return max(self._has, key=self._has.get)
+    
 
     def div(self):
-        e = 0
-        for sym, count in self._has.items():
-            if count > 0:
-                p = count / self.n
-                e = e - p * math.log2(p)
+        fun = lambda p : p*math.log(p,2)
+        e = 0  
+        for key in self._has.keys():
+            if self._has[key] > 0 :
+                e = e - fun(self._has[key]/self.n)
+        
         return e
 
 
-t = [1, 2, 2, 31, 1, 1, 6, 5]
-
-
 class Num:
-
-    def __init__(self, *args):
-        self.n = 0
-        self.at = 0
-        self.name = ''
-        if len(args) > 0:
-            self.at = args[0]
-            self.name = args[1]
-        self._has = {}
-        self.lo = -sys.maxsize - 1
-        self.high = sys.maxsize
-        self.isSorted = True
-        # self.w = (args[1] or '').find('-$') == -1 and -1 or 1
-
-    def nums(self):
-        if not self.isSorted:
-            print(self._has)
-            self._has = dict(sorted(list(self._has.items())))
-            print(self._has)
-            self.isSorted = True
-        return self._has
-
-    # per
-    def per(self, t, *args):
-        p = math.floor(((len(args) > 0 and args[0] or 0.5) * len(t)) + 0.5)
-        return t[max(1, min(len(t), p))]
-
-    # Num Add
-    def add(self, v, the):
-        if type(v) == int:
-            self.n += 1
-            self.lo = min(v, self.lo)
-            self.high = max(v, self.high)
-            pos = None
-            if len(self._has) < the['nums']:
-                pos = 1 + len(self._has)
-            elif random.random() < the['nums'] / self.n:
-                pos = random.randint(0, len(self._has))
-
-            if pos:
-                self.isSorted = False
-                self._has[pos] = int(v)
+    
+    #'Num' summarizes the stream of numbers
+    def __init__(self,c=0,s=str()):
+        self.n=0
+        self.at=c
+        self.name=s
+        self._has=dict()
+        self.low=math.inf
+        self.high=-math.inf
+        self.isSorted=True
+        if(len(s)>0 and s[-1]=='-'):
+            self.w=-1
         else:
-            print("Symbol encountered!!")
+            self.w=1
+    
+    def __str__(self):
+        return "{"+ f" n:{self.n}, at:{self.at+1}, name:{self.name}, low:{self.low}, high:{self.high}, isSorted:{self.isSorted}, w:{self.w}"+"}"
 
-    # Num Div
+    #Return kept numbers, sorted.
+    def nums(self):
+        if (not self.isSorted):
+            list(sorted(self._has))
+        return self._has
+            
+        
+
+    #Reservoir sampler. Keep atmost 'the[nums]' numbers 
+    # (if we run out of space delete something old at random and add new)
+    def add(self,ele,pos=None):
+        if ele!='?':
+            self.n=self.n+1
+            self.low=min(self.low,int(ele))
+            self.high=max(self.high,int(ele))
+            if ( (len(self._has))<(the['nums']) ):
+                pos=1+len(self._has)
+            elif ( random.randint(0,len(self._has)) < (the['nums'])/self.n ):
+                pos=random.randint(1,len(self._has))
+            if pos!=None:
+                self.isSorted=False
+                self._has[pos]=int(ele)
+
+
+    #Diversity (standard deviation from Nums, entropy for Syms)
     def div(self):
-        a = self.nums()
-        return (self.per(a, 0.9) - self.per(a, 0.1)) / 2.58
-
-    # Num Mid
+        a=self.nums()
+        return (per(a,0.9)-per(a,0.1))/2.58 
+    
+    #Central tendency (median for Nums, mode for Syms)
     def mid(self):
-        return self.per(self.nums(), 0.5)
-
-
-class Cols:
-
-    def __init__(self,names):
-        self.names=names
-        self.all=[]
-        self.klass=None
-        self.x=[]
-        self.y=[]
-
-        for column_name in self.names:
-            if column_name[0].isupper():
-                column=Num(names.index(column_name),column_name)
-            else:
-                column=Sym(names.index(column_name),column_name)
-
-            if column_name[-1]!=':':
-                if('!' in column_name or '+' in column_name or '-' in column_name):
-                    self.y.append(column)
-                else:
-                    self.x.append(column)
-
-            if column_name[-1]=='!':
-                self.klass=column
-            self.all.append(column)
-
-    def str(self):
-        return f"names is {self.names}, all is {self.all}, klass is {self.klass}, x is {self.x}, y is {self.y}"
-
-
-class Rows:
-
-    def __init__(self, t:dict):
-        self.cells = t
-        self.cooked = copy(t)
-        self.isEvaled = False
-
+        return per(self.nums(),0.5) 
 
 class Data: 
-
+    
     def __init__(self,src):
         self.cols=None
         self.rows=[]
@@ -153,7 +99,7 @@ class Data:
                 self.add(row)
 
     def add(self,xs):
-
+        s = Sym()
         if not self.cols:
             self.cols=Cols(xs)
         else:
@@ -181,8 +127,39 @@ class Data:
                     v=i.div()
             t[i.name]=v
         return t
+class Cols:
+
+    def __init__(self,names):
+        self.names=names
+        self.all=[]
+        self.klass=None
+        self.x=[]
+        self.y=[]
+
+        for column_name in self.names:
+            if column_name[0].isupper():
+                column=Num(names.index(column_name),column_name)
+            else:
+                column=Sym(names.index(column_name),column_name)
+            
+            if column_name[-1]!=':':
+                if('!' in column_name or '+' in column_name or '-' in column_name):
+                    self.y.append(column)
+                else:
+                    self.x.append(column)
+
+            if column_name[-1]=='!':
+                self.klass=column
+            self.all.append(column)
+    
+    def __str__(self):
+        return f"names is {self.names}, all is {self.all}, klass is {self.klass}, x is {self.x}, y is {self.y}"
 
 
-    @property
-    def has(self):
-        return self._has
+class Rows:
+
+    def __init__(self, t:dict):
+        self.cells = t
+        self.cooked = copy(t)
+        self.isEvaled = False
+

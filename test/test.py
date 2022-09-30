@@ -1,19 +1,19 @@
-import path
-import sys
-
-
-
 
 # importing
 
 from functions import *
 from definitions import *
+from collections import OrderedDict
+import sys
+
+
+
 
 
 
 eg = {}
 #fails = 0
-the={'eg':'','dump':False,'file':'../data/auto93.csv','help':False,'nums':512,'seed':10019,'seperator':','}
+the={'eg':'','dump':False,'file':'./data/auto93.csv','help':False,'nums':512,'seed':10019,'seperator':','}
 
 #the = {'nums': 100}
 old = {}

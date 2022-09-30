@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 import sys
 import math
-import re
+import re as reg
+the={'eg':'','dump':False,'file':'./data/auto93.csv','help':False,'nums':512,'seed':10019,'seperator':','}
 
 help = """usage: python [option] ... [-c cmd | -m mod | file | -] [arg] ...
 Options and arguments (and corresponding environment variables):
@@ -71,26 +72,11 @@ arg ...: arguments passed to program in sys.argv[1:]"""
 
 def coerce(s: str):
 
-    if type(s)==int:
+    if(reg.search(r'\d',s)):
         return float(s)
-    def fun(s1: str):
-        if s1 == None:
-            return False
-        if s1 == "false":
-            return False
-        return s1
+    return s
 
-    # number for boolean for lua line 31
-    try:
-        b1 = int(s)
-    except:
-        b1 = None
-    return b1 or fun(re.match("^\s*(.−)\s*$"), s)
 
-def coerce1(ele):
-    if(re.search(r'\d',ele)):
-        return float(ele)
-    return ele
 
 def cli(t: dict) -> dict:
     arg = sys.argv
@@ -121,12 +107,8 @@ def copy(t:dict):
 
 
 def per(t,p):
-    if p == None:
-        p = 0.5
-    p = math.floor((p*len(t.keys()))+0.5)
-
-    return t[math.max(1,math.min(len(t.keys()),p))]
-
+    p=math.floor(((0.5 if p is None else p)*len(t))+0.5)
+    return t[max(1,min(len(t),p))]
 
 def push(t,x):
     t[1+len(t.keys())]=x
@@ -135,12 +117,12 @@ def push(t,x):
 
 def csv(fileName):
     if(fileName==None or len(fileName.strip())==0):
-        raise Exception("FILE NOT FOUND")
+        raise Exception("FILE NOT FOUNDED")
     rows=[]
     with open(fileName,'r',encoding='utf-8') as file:
         row_eles=file.readlines()
         for row_ele in row_eles:
-            k=list(map(coerce1,row_ele.split(',')))
+            k=list(map(coerce,row_ele.split(',')))
             rows.append(k)
     return rows
 
@@ -151,8 +133,8 @@ def o(t: dict) -> str:
         return str(t)
 
     def show(k, v):
-        if re.search("^_", str(k)) is not None:
-            if not re.search("^_", str(k)).group():
+        if reg.search("^_", str(k)) is not None:
+            if not reg.search("^_", str(k)).group():
                 v = o(v)
         return (len(t.keys()) != 0) and ":{K} {V}".format(K=k, V=v)
 
