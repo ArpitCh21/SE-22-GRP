@@ -4,6 +4,7 @@
 [![](https://img.shields.io/badge/IDE-IntelliJ_IDEA-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a)](https://www.jetbrains.com/idea/)
 [![](https://img.shields.io/badge/Shell-Bash-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a)](https://www.gnu.org/software/bash/)
 [![](https://img.shields.io/badge/License-MIT-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a)](https://github.com/aadiltajani/CSC510-HW-GRP19/blob/main/LICENSE)
+[![codecov](https://codecov.io/github/aadiltajani/CSC510-HW-GRP19/branch/main/graph/badge.svg?token=DLQS80C5QJ)](https://codecov.io/github/aadiltajani/CSC510-HW-GRP19)
 [![workflow](https://github.com/aadiltajani/CSC510-HW-GRP19/actions/workflows/main.yml/badge.svg)](https://github.com/aadiltajani/CSC510-HW-GRP19/actions)
 # Readme
 
