@@ -38,4 +38,8 @@ jobs:
           echo
           echo Output of the test file
           python test/test.py
-          
+      #Script to generate document
+      - name: Generate Document post commit
+        run: |
+          pip install pdoc
+          python -m pdoc ./test/* -o ./docs
