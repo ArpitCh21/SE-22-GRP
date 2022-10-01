@@ -38,3 +38,10 @@ jobs:
           echo
           echo Output of the test file
           python test/test.py
+      # Get CodeCov report
+      - name: Getting Code Coverage
+        run: |
+          pip install coverage
+          coverage run -m ./test/test.py
+      - name: Upload Coverage Report to Code Coverage
+        uses: codecov/codecov-action@v2
