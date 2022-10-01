@@ -7,7 +7,9 @@
 [![workflow](https://github.com/aadiltajani/CSC510-HW-GRP19/actions/workflows/main.yml/badge.svg)](https://github.com/aadiltajani/CSC510-HW-GRP19/actions)
 # Readme
 
-This folder contains HW 1,2 and 3. Hw 1 and 4 is the good repo with all the bling and HW 2,3 are present in the LUA folder.
+This folder contains HW 1,2,3,4 and 5. Hw 1 is the good repo with all the bling and HW 2,3 are present in the test folder. Hw 4 has all the badges with zenodo link, automated document generator can be viewed here:https://aadiltajani.github.io/CSC510-HW-GRP19/test.html and hw5 is in the docs folder with one sheet per group.
+
+Documentation: https://aadiltajani.github.io/CSC510-HW-GRP19/test.html
 
 ## Name
 
