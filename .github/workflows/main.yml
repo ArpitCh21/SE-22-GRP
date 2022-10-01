@@ -44,4 +44,4 @@ jobs:
           pip install coverage
           coverage run -m ./test/test.py
       - name: Upload Coverage Report to Code Coverage
-        uses: codecov/codecov-action@v2
+        uses: codecov/codecov-action@v3
