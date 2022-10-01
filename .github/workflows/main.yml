@@ -42,4 +42,4 @@ jobs:
       - name: Generate Document post commit
         run: |
           pip install pdoc
-          python -m pdoc ./test/* -o ./docs
+          python -m pdoc ./test/test.py -o ./test
