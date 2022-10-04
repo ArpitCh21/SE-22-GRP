@@ -1,8 +1,8 @@
 
 # importing
 
-from functions import *
-from definitions import *
+from test/functions import *
+from test/definitions import *
 from collections import OrderedDict
 import sys
 
