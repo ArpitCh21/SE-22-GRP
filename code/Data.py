@@ -1,3 +1,5 @@
+import sys
+sys.path.append("./code")
 from Cols import Cols
 from Rows import Rows
 from num import Num
