@@ -27,24 +27,7 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    # steps:
-    #   - name: Checkout
-    #     uses: actions/checkout@v3
-    #   - name: Setup Pages
-    #     uses: actions/configure-pages@v2
-    #   #Script to generate document
-    #   - name: Generate Document post commit
-    #     run: |
-    #       pip install pdoc
-    #       python -m pdoc code.main -o ./docs/pages
-    #   - name: Upload artifact
-    #     uses: actions/upload-pages-artifact@v1
-    #     with:
-    #       # Upload entire repository
-    #       path: './docs/pages'
-    #   - name: Deploy to GitHub Pages
-    #     id: deployment
-    #     uses: actions/deploy-pages@v1
+
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
