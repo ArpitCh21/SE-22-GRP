@@ -1,3 +1,5 @@
+import sys
+sys.path.append("./code")
 from functions import copy
 
 
