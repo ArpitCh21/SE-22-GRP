@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 import sys
 import math
-import re
+import re as reg
+the={'eg':'','dump':False,'file':'./data/auto93.csv','help':False,'nums':512,'seed':10019,'seperator':','}
 
-help="""usage: python [option] ... [-c cmd | -m mod | file | -] [arg] ...
+help = """usage: python [option] ... [-c cmd | -m mod | file | -] [arg] ...
 Options and arguments (and corresponding environment variables):
 -b     : issue warnings about str(bytes_instance), str(bytearray_instance)
          and comparing bytes/bytearray with str. (-bb: issue errors)
@@ -69,45 +70,33 @@ file   : program read from script file
 arg ...: arguments passed to program in sys.argv[1:]"""
 
 
-def coerce(s:str):
-    def fun(s1:str):
-        if s1==None:
-            return False
-        if s1=="false":
-            return False
-        return s1
-    
-    #number for boolean for lua line 31
-    try:
-        b1=int(s)
-    except:
-        b1=None
-    return b1 or fun(re.match("^\s*(.−)\s*$"), s)
-     
- 
- 
-def cli(t:dict)->dict:
+def coerce(s: str):
+
+    if(reg.search(r'\d',s)):
+        return float(s)
+    return s
+
+
+
+def cli(t: dict) -> dict:
     arg = sys.argv
-    if type(t)!=dict:
+    if type(t) != dict:
         print("error: something wrong with t:not a dictionary")
         quit()
-    help_flag=0
     for slot in t.keys():
-        v=str(t[slot])
-        for n,x in arg:
-            if ((x=="-"+slot[1:2]) or (x=="--"+slot)):
-                v = v=="false" and "true" or v=="true" and "false" or arg[n+1]
-                if (x=="-h" or x=="--help"):
-                    help_flag=1
+        v = str(t[slot])
+        for n, x in arg:
+            if ((x == "-" + slot[1:2]) or (x == "--" + slot)):
+                v = v == "false" and "true" or v == "true" and "false" or arg[n + 1]
             t[slot] = coerce(v)
-    if help_flag==1:
+    if (x == "-h" or x == "--help"):
         print("\n")
         print(help)
         print("\n")
-        quit()
-        
+
     return t
-        
+
+
 def copy(t:dict):
     if type(t)!=dict:
         return t
@@ -116,35 +105,68 @@ def copy(t:dict):
         u[k] = copy(t[k])
     return u
 
+
+def per(t,p):
+    p=math.floor(((0.5 if p is None else p)*len(t))+0.5)
+    return t[max(1,min(len(t),p))]
+
 def push(t,x):
     t[1+len(t.keys())]=x
     return x
 
-def o(t:dict)->str:
-    if type(t)!=dict:
+
+def csv(fileName):
+    if(fileName==None or len(fileName.strip())==0):
+        raise Exception("FILE NOT FOUNDED")
+    rows=[]
+    with open(fileName,'r',encoding='utf-8') as file:
+        row_eles=file.readlines()
+        for row_ele in row_eles:
+            k=list(map(coerce,row_ele.split(',')))
+            rows.append(k)
+    return rows
+
+
+def o(t: dict) -> str:
+    print(t)
+    if type(t) != dict:
         return str(t)
+
     def show(k, v):
-        result=re.search("^_", k)
-        if not result.group():
-            v=o(v)
-        return (len(t.keys())==0) and ":{K} {V}".format(K = k, V = v)
-    u={}
+        if reg.search("^_", str(k)) is not None:
+            if not reg.search("^_", str(k)).group():
+                v = o(v)
+        return (len(t.keys()) != 0) and ":{K} {V}".format(K=k, V=v)
+
+    u = {}
+    if len(t.keys())==0:
+        return("nothing to print")
+
     for k in t.keys():
-        v=t[k]
-        u[1+len(u.keys())]=show(k,v)
-    
-    string_arr=[]
+        v = t[k]
+        u[1 + len(u.keys())] = show(k, v)
+
+    string_arr = []
+    # print(u)
     for k in u.keys():
         string_arr.append(u[k])
     if len(t.keys()) == 0:
         string_arr.sort()
-    concatenated_string=string_arr.join()
-    return(concatenated_string)
+    # print(string_arr)
+    concatenated_string = ''.join(string_arr)
+    return (concatenated_string)
 
-def oo(t:dict)->dict:
+
+def oo(t: dict) -> dict:
     print(o(t))
     return t
-    
+
+
+def rnd(x, places):
+    mult = 10 ** (places or 2)
+    return (math.floor(x * mult + 0.5) / mult)
+
+
 class Obj:
     def __init__(self, t, i):
         self.table = t
