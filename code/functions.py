@@ -2,6 +2,7 @@
 import sys
 import math
 import re as reg
+
 the={'eg':'','dump':False,'file':'./data/auto93.csv','help':False,'nums':512,'seed':10019,'seperator':','}
 
 help = """usage: python [option] ... [-c cmd | -m mod | file | -] [arg] ...

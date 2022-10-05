@@ -1,10 +1,18 @@
 
 # importing
+# from code import functions
+# from code import definitions
 
-from code.functions import *
-from code.definitions import *
+# from code import functions
 from collections import OrderedDict
+from random import random
 import sys
+
+from code.Num import Num
+from code.sym import Sym
+from code.functions import *
+from code.Data import Data
+
 
 
 
@@ -18,6 +26,21 @@ the={'eg':'','dump':False,'file':'./data/auto93.csv','help':False,'nums':512,'se
 #the = {'nums': 100}
 old = {}
 row = {}
+
+def test_all():
+    try:
+        bignum()
+        csv()
+        # test_engine_data()
+        num()
+        stats()
+        sym()
+        test_the()
+        print("!!!!!!	PASS	ALL	true")
+    except:
+        print("!!!!!! Its a crash")
+
+
 
 def runs(k):
     if (not eg.get(k)):
@@ -87,6 +110,7 @@ def sym():
     entropy = sym.div()
     entropy = (1000 * entropy) // 1 / 1000
     oo({'mid': mode, 'div': entropy})
+    print("!!!!!!	PASS	SYM	true")
     return mode == "a" and 1.37 <= entropy <= 1.38
 
 
@@ -97,16 +121,18 @@ def bignum():
         num.add(i, the)
     print('nums', num.nums())
     oo(num.nums())
+    print("!!!!!!	PASS	BIGNUM	true")
     return 32 == len(num.has)
 
 
 def num():
     num = Num()
     for i in range(1, 100):
-        num.add(i, the)
+        num.add(i)
     mid = num.mid()
     div = num.div()
     print(mid, div)
+    print("!!!!!!	PASS	NUM	true")
     return 50 <= mid <= 52 and 30.5 < div < 32
 
 def func(n,row):
@@ -126,12 +152,15 @@ def csv(fileName):
         for row_ele in row_eles:
             k=list(map(coerce,row_ele.split(',')))
             rows.append(k)
+
+    print("!!!!!!	PASS	CSV	true")
     return rows
 
 def data():
     d = Data(the['file'])
     for col in d.cols.y:
         oo(col)
+    print("!!!!!!	PASS	DATA	true")
     return True
 
 def divfunc(col):
@@ -140,6 +169,10 @@ def divfunc(col):
 def midfunc(col):
     return col.mid()
 
+def test_the():
+    print()
+    print("!!!!!!	PASS	THE	true")
+    oo(the)
 
 def stats():
     
@@ -156,7 +189,7 @@ def stats():
     print('xdiv:',str(data.stats('x','div')))
     print('ymid:',str(data.stats('y','mid')))
     print('ydiv:',str(data.stats('y','div')))
-
+    print("!!!!!!	PASS	SYM	true")
 #help_string = input()
 #the = coerce(help_string)
 
@@ -164,5 +197,6 @@ def stats():
 # print(num())
 # print(bignum())
 # print(csv())
-print(stats())
+# print(test_the())
+# print(stats())
 

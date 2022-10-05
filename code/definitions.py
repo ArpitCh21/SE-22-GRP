@@ -127,6 +127,8 @@ class Data:
                     v=i.div()
             t[i.name]=v
         return t
+
+
 class Cols:
 
     def __init__(self,names):
