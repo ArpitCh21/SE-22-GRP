@@ -24,27 +24,19 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
-
-      # Runs a set of commands using the runners shell
-      - name: Checking Python Version
-        run: |
-          python --version
-          echo
-      - name: Installing the required dependencies
+      - name: Installing Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.10.0
+      - name: Installing dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-          
-      # Get CodeCov report
-      - name: Running Test Cases
+      - name: Running test cases with pytest
         run: python -m pytest
-      - name: Getting Code Coverage
+      - name: Generate Report
         run: |
           pip install coverage
           coverage run -m pytest
-      - name: Upload Coverage Report to Code Coverage
-        uses: codecov/codecov-action@v3
+      - name: Upload Coverage to Codecov
+        uses: codecov/codecov-action@v2
