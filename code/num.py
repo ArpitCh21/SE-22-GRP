@@ -60,7 +60,7 @@
 import math
 import random
 
-from code.functions import per,the
+from functions import per,the
 
 
 class Num:
