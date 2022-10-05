@@ -1,5 +1,5 @@
-from code.num import Num
-from code.sym import Sym
+from num import Num
+from sym import Sym
 
 
 
