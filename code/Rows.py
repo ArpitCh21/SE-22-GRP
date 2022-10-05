@@ -1,4 +1,4 @@
-from code.functions import copy
+from functions import copy
 
 
 class Rows:
