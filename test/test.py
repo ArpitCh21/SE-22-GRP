@@ -159,8 +159,16 @@ def stats():
 
 #help_string = input()
 #the = coerce(help_string)
+<<<<<<< HEAD
 # print(sym())
 # print(num())
 # print(bignum())
 # print(csv())
 print(stats())
+=======
+#print(sym())
+#print(num())
+#print(bignum())
+#print(csv())
+print(stats())
+>>>>>>> feb84a1b190c6fb77ead279a46b38878545913e8
