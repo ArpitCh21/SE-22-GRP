@@ -46,24 +46,10 @@ jobs:
     #     id: deployment
     #     uses: actions/deploy-pages@v1
     steps:
-<<<<<<< HEAD
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
       - name: Installing Python
         uses: actions/setup-python@v4
-=======
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Setup Pages
-        uses: actions/configure-pages@v2
-      #Script to generate document
-      - name: Generate Document post commit
-        run: |
-          pip install pdoc
-          python -m pdoc code.main -o ./docs/pages
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
->>>>>>> a1e6df80878c615413d813cb2fdf74f2afe4af84
         with:
           python-version: 3.10.0
       - name: Installing dependencies
