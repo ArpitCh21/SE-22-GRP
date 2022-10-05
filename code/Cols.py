@@ -1,3 +1,5 @@
+import sys
+sys.path.append("./code")
 from num import Num
 from sym import Sym
 
