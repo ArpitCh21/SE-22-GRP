@@ -34,9 +34,11 @@ jobs:
           pip install -r requirements.txt
       - name: Running test cases with pytest
         run: python -m pytest
+      - name: Running custom test engine to output
+        run: python -m ./code/main.py
       - name: Generate Report
         run: |
           pip install coverage
-          coverage run -m pytest
+          coverage run -m ./code/main.py
       - name: Upload Coverage to Codecov
         uses: codecov/codecov-action@v2
