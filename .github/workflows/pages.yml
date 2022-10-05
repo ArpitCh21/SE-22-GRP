@@ -57,10 +57,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
       - name: Running test cases 
-        run: python -m code.main
+        run: python -m pytest
       - name: Generate Report
         run: |
           pip install coverage
-          coverage run -m code.main
+          coverage run -m pytest
       - name: Upload Coverage to Codecov
         uses: codecov/codecov-action@v2
