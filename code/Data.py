@@ -1,9 +1,9 @@
-from code.Cols import Cols
-from code.Rows import Rows
-from code.num import Num
-from code.sym import Sym
+from Cols import Cols
+from Rows import Rows
+from num import Num
+from sym import Sym
 
-from code.functions import csv
+from functions import csv
 
 
 class Data: 
