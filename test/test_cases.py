@@ -144,7 +144,7 @@ def func(n,row):
         oo(row)
     return True
 
-def test_csv(fileName):
+def test_csv(fileName='./data/auto93.csv'):
     try:
         if(fileName==None or len(fileName.strip())==0):
             raise Exception("FILE NOT FOUNDED")
