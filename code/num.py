@@ -71,7 +71,7 @@ class Num:
         self.n=0
         self.at=c
         self.name=s
-        self._has=dict()
+        self._has=list()
         self.low=math.inf
         self.high=-math.inf
         self.isSorted=True
