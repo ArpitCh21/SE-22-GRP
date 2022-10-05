@@ -7,11 +7,11 @@
 from collections import OrderedDict
 from random import random
 import sys
-
-from code.num import Num
-from code.sym import Sym
-from code.functions import *
-from code.Data import Data
+sys.path.append("./code")
+from num import Num
+from sym import Sym
+from functions import *
+from Data import Data
 
 
 
