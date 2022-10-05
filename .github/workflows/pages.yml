@@ -36,7 +36,7 @@ jobs:
       - name: Generate Document post commit
         run: |
           pip install pdoc
-          python -m pdoc ./code/* -o ./docs/pages
+          python -m pdoc ./test/test_cases -o ./docs/pages
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
