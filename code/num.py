@@ -59,7 +59,8 @@
 
 import math
 import random
-
+import sys
+sys.path.append("./code")
 from functions import per,the
 
 
