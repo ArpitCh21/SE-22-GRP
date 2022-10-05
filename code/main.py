@@ -1,4 +1,6 @@
-from test.test_cases import test_all
+import sys
+sys.path.append("./test")
+from test_cases import test_all
 
 def main():
     
