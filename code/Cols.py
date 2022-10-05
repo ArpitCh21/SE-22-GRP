@@ -1,4 +1,4 @@
-from code.Num import Num
+from code.num import Num
 from code.sym import Sym
 
 
