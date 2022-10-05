@@ -35,7 +35,7 @@ jobs:
       - name: Running test cases with pytest
         run: python -m pytest
       - name: Running custom test engine to output
-        run: python -m ./code/main.py
+        run: python ./code/main.py
       - name: Generate Report
         run: |
           pip install coverage
