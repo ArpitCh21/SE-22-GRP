@@ -41,8 +41,7 @@ jobs:
           
       # Get CodeCov report
       - name: Running Test Cases
-        run: |
-          python -m pytest
+        run: python -m pytest
       - name: Getting Code Coverage
         run: |
           pip install coverage
