@@ -128,35 +128,57 @@ def csv(fileName):
     return rows
 
 
+# def o(t: dict) -> str:
+#     print(t)
+#     if type(t) != dict:
+#         return str(t)
+
+#     def show(k, v):
+#         if reg.search("^_", str(k)) is not None:
+#             if not reg.search("^_", str(k)).group():
+#                 v = o(v)
+#         return (len(t.keys()) != 0) and ":{K} {V}".format(K=k, V=v)
+
+#     u = {}
+#     if len(t.keys())==0:
+#         return("nothing to print")
+
+#     for k in t.keys():
+#         v = t[k]
+#         u[1 + len(u.keys())] = show(k, v)
+
+#     string_arr = []
+#     # print(u)
+#     for k in u.keys():
+#         string_arr.append(u[k])
+#     if len(t.keys()) == 0:
+#         string_arr.sort()
+#     # print(string_arr)
+#     concatenated_string = ''.join(string_arr)
+#     return (concatenated_string)
+
 def o(t: dict) -> str:
-    print(t)
-    if type(t) != dict:
-        return str(t)
-
-    def show(k, v):
-        if reg.search("^_", str(k)) is not None:
-            if not reg.search("^_", str(k)).group():
+        if not isinstance(t, dict):
+            if not isinstance(t, list):
+                return str(t)
+        
+        def show(k, v):
+            if str(k).find('_') != 0:
                 v = o(v)
-        return (len(t.keys()) != 0) and ":{K} {V}".format(K=k, V=v)
+                return isinstance(t, dict) and (":"+str(k)+" "+str(v)) or str(v)
+        
+        u = []
+        if isinstance(t, dict):
+            for k, v in t.items():
+                showop = show(k,v)
+                if showop:
+                    u.append(showop) 
+                u.sort()
 
-    u = {}
-    if len(t.keys())==0:
-        return("nothing to print")
-
-    for k in t.keys():
-        v = t[k]
-        u[1 + len(u.keys())] = show(k, v)
-
-    string_arr = []
-    # print(u)
-    for k in u.keys():
-        string_arr.append(u[k])
-    if len(t.keys()) == 0:
-        string_arr.sort()
-    # print(string_arr)
-    concatenated_string = ''.join(string_arr)
-    return (concatenated_string)
-
+        elif isinstance(t, list):
+            u = t
+        
+        return "{" + " ".join(str(val) for val in u) + "}"
 
 def oo(t: dict) -> dict:
     print(o(t))

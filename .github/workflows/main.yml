@@ -42,10 +42,10 @@ jobs:
       # Get CodeCov report
       - name: Running Test Cases
         run: |
-          python -m pytest
+          python -m code.main
       - name: Getting Code Coverage
         run: |
           pip install coverage
-          coverage run ./test/test.py
+          coverage run ./test/test_cases.py
       - name: Upload Coverage Report to Code Coverage
         uses: codecov/codecov-action@v3
