@@ -8,7 +8,7 @@ from collections import OrderedDict
 from random import random
 import sys
 
-from code.Num import Num
+from code.num import Num
 from code.sym import Sym
 from code.functions import *
 from code.Data import Data
