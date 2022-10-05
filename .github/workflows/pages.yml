@@ -33,10 +33,10 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v2
       #Script to generate document
-      # - name: Generate Document post commit
-      #   run: |
-      #     pip install pdoc
-      #     python -m pdoc ./test/test_cases.py -o ./docs/pages
+      - name: Generate Document post commit
+        run: |
+          pip install pdoc
+          python -m pdoc test.test_cases -o ./docs/pages
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
