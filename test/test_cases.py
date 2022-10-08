@@ -117,11 +117,11 @@ def sym():
 def bignum():
     num = Num()
     the['nums'] = 32
-    for i in range(1, 1000):
+    for i in range(1, 1001):
         num.add(i)
     # print('nums', num.nums())
     # if(32 == len(num._has)):
-    #     oo(num.nums())
+    oo(num.nums())
     print("!!!!!!	PASS	BIGNUM	true")
     # return 32 == len(num.has)
 
@@ -145,6 +145,7 @@ def func(n,row):
     return True
 
 def test_csv(fileName='./data/auto93.csv'):
+    the['nums'] = 512
     try:
         if(fileName==None or len(fileName.strip())==0):
             raise Exception("FILE NOT FOUNDED")

@@ -71,7 +71,7 @@ class Num:
         self.n=0
         self.at=c
         self.name=s
-        self._has=list()
+        self._has=(0) * [the['nums']]
         self.low=math.inf
         self.high=-math.inf
         self.isSorted=True
@@ -85,8 +85,9 @@ class Num:
 
     #Return kept numbers, sorted.
     def nums(self):
-        if (not self.isSorted):
-            list(sorted(self._has))
+        # if (not self.isSorted):
+        # list(sorted(self._has))
+        self._has.sort()
         return self._has
             
         
@@ -94,6 +95,7 @@ class Num:
     #Reservoir sampler. Keep atmost 'the[nums]' numbers 
     # (if we run out of space delete something old at random and add new)
     def add(self,ele,pos=None):
+        the['nums'] = 32
         if ele!='?':
             self.n=self.n+1
             self.low=min(self.low,int(ele))
@@ -101,10 +103,12 @@ class Num:
             if ( (len(self._has))<(the['nums']) ):
                 pos=1+len(self._has)
             elif ( random.randint(0,len(self._has)) < (the['nums'])/self.n ):
-                pos=random.randint(1,len(self._has))
+                pos=random.randint(1,the['nums'])
             if pos!=None:
                 self.isSorted=False
-                self._has[pos]=int(ele)
+                self._has.insert(pos,int(ele))
+        the['nums'] = 512
+
 
 
     #Diversity (standard deviation from Nums, entropy for Syms)
